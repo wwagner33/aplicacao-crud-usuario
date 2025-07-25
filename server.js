@@ -73,8 +73,8 @@ app.get("/list-users/:count?", async (req, res) => {
     num = 10000; // Define um número máximo para evitar sobrecarga
   } else if (num < 0) {
     num = 100;
-  } else if (num > 10000) {
-    num = 10000; // Limita o número máximo de usuários a 10.000
+  } else if (num > 1000) {
+    num = 1000; // Limita o número máximo de usuários a 10.000
     console.log(`Número máximo de usuários a retornar: ${num}`);
   }
 
@@ -162,6 +162,8 @@ app.put("/atualizar-usuario/:id", async (req, res) => {
   try {
     const usuarios = await lerUsuarios(0);
     const usuarioIndex = usuarios.findIndex((u) => u.id === req.params.id);
+    console.log(`Atualizando usuário com ID: ${req.params.id}`);
+    console.log(`Elemento do VEtor identificado: ${usuarioIndex}`);
 
     if (usuarioIndex === -1) {
       return res.status(404).json({ error: "Usuário não encontrado." });

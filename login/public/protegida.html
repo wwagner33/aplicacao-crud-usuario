@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Área Protegida</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+      .logout-btn {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bem-vindo à Área Protegida! 🔒</h1>
+    <p>
+      Você está autenticado como
+      <strong id="user-email">admin@meuemail.com</strong>.
+    </p>
+
+    <h3>Opções:</h3>
+    <button onclick="location.href='/lista_usuarios.html'">
+      Listar Usuários
+    </button>
+    <button onclick="location.href='/cadastra_usuario.html'">
+      Cadastrar Usuário
+    </button>
+    <button onclick="location.href='/remover_usuario.html'">
+      Remover Usuário
+    </button>
+
+    <br /><br />
+    <button class="logout-btn" id="logoutBtn">Sair</button>
+
+    <script>
+      // Verifica se o token existe no localStorage
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Acesso negado! Faça login primeiro.");
+        window.location.href = "/login.html";
+      }
+
+      // Botão de logout
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("token"); // Remove o token
+        window.location.href = "/login.html"; // Redireciona para o login
+      });
+
+      // Opcional: Verifica com o servidor se o token é válido
+      async function validarToken() {
+        const response = await fetch("/protegida.html", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.ok) {
+          localStorage.removeItem("token");
+          window.location.href = "/login.html";
+        }
+      }
+      validarToken(); // Chama a validação ao carregar a página
+    </script>
+  </body>
+</html>

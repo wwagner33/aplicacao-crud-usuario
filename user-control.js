@@ -60,32 +60,22 @@ async function lerUsuarios(num) {
         return [];
       }
       const arr = JSON.parse(texto);
-      if (!Array.isArray(arr)) {
-        console.error(
-          "usuarios.json não contém um array válido. Retornando array vazio."
-        );
-        return [];
-      }
-      if (arr.length === 0) {
-        console.warn("usuarios.json está vazio. Retornando array vazio.");
-        return [];
-      }
+      let arr_limited = [];
 
-      if (num < arr.length) {
+      if (num > 0 && num <= arr.length) {
         arr_limited = arr.slice(0, num); // Limita o número de usuários retornados
-        console.log(`Total de usuários lidos: ${arr_limited.length}`);
-        return arr_limited;
-      }
-
-      if (num === 0) {
-        // Se não houver limite, retorna todos os usuários
+      } else if (num > arr.length) {
+        arr_limited = arr; // Retorna todos os usuários se num for maior que o tamanho do array
+      } else if (num === 0) {
         console.log(`Nenhum limite aplicado. Retornando todos os usuários.`);
-        num = arr.length; // Atualiza num para o tamanho total do array
-        console.log(`Número total de usuários: ${num}`);
+        arr_limited = arr; // Retorna todos os usuários se num for 0
       } else {
-        console.log(`Número máximo de usuários a retornar: ${num}`);
-        return arr;
+        console.warn("Número inválido fornecido. Retornando array vazio.");
+        return [];
       }
+      console.log(`Lidos ${arr_limited.length} usuários do arquivo.`);
+
+      return arr_limited;
     } catch (err) {
       console.error("Erro ao ler usuarios.json:", err);
       return [];
