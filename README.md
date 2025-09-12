@@ -27,7 +27,16 @@ Universidade Federal do Ceará (UFC)
 ## 📘 Acesso ao Tutorial
 
 Você pode acessar um tutorial completo sobre estra aplicação de exemplo através deste link:
-👉 [`tutorial.md`](./public/tutorial.md)
+👉 [`tutorial.md`](./public/tutorial.md).
+
+Para aprofudamento nos assuntos abordados neste tutorial, acesso os links:
+
+1. [Guia Prático do Express.js para Node.js](https://wellingtonwfsarmento.notion.site/Guia-Pr-tico-do-Express-js-para-Node-js-ae839e31ffc644bdb7527b8e6667956f)
+2. [Um Guia Prático para fetch(), reduce() e Formatação de Dados de uma API Externa](https://wellingtonwfsarmento.notion.site/Um-Guia-Pr-tico-para-fetch-reduce-e-Formata-o-de-Dados-de-uma-API-Externa-9b99f1f534ef4f25849d4968a8517a4c)
+3. [Como Funciona o JavaScript Assíncrono](https://wellingtonwfsarmento.notion.site/Como-Funciona-o-JavaScript-Ass-ncrono-5d8e4a7b5b48492e9c47f568ab10c6c8)
+4. [Como Funciona uma Sessão em HTTP](https://wellingtonwfsarmento.notion.site/Como-Funciona-uma-Sess-o-em-HTTP-2ccf1549351241afbc8922e04aed4270)
+5. [Componente createPaginatedTable()](https://wellingtonwfsarmento.notion.site/Componente-createPaginatedTable-ec6c0b75870c4e6094342d3cfcae0712)
+
 
 ---
 
